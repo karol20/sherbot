@@ -7,8 +7,7 @@ import json
 import buttons
 import parserek
 
-global page
-page = parserek.sesion()
+
 Page_Access_Token = "EAADGZCGstHcwBAJq6BUSMZAZBfORzfrhu0k9kHtFvUTVPZBRhMnQd1vlpm94vBGwo8tNlZCSKh18ScPR5H18i8JUJntvvS6rKirJOmIag9LSxPOW9R9BQgu39vlC0MMkmMTBcPLxnXUJGQu6SVlf2ikCaH13opzQKiTizA5aWJwZDZD"
 Webhook_Token = "WHVT"
 bot = Bot(Page_Access_Token)
@@ -41,9 +40,10 @@ def ChatBot():
 
                 if 'postback' in messaging:
                     #początek rozmowy / przycisk rozpocznij/ nawiązanie połączenia z akinatorem
-                    if messaging['postback']['title'] == "Rozpocznij":
+                    if messaging['postback']['payload'] == "Rozpocznij":
                         #
-
+                        global page
+                        page = parserek.sesion()
 
                         buttons.button(nadawca, bot)
                     #postaback po nacisnięciu zaczynajmy
@@ -57,23 +57,23 @@ def ChatBot():
 
                     try:
                         propozycja = parserek.check_win(page)
-                        buttons.win_buttons(nadawca, propozycja, bot)
+                        #buttons.win_buttons(nadawca, propozycja, bot)
                         parserek.kill(page)
 
                     except Exception:
-                        # if pierwsze:
-                        #     wyb = messaging['message']['quick_reply']['payload']
-                        #     dr = parserek.answer(page, wyb)
-                        #     pytanie = parserek.pytanie(page)
-                        #     buttons.odp(nadawca, pytanie, bot)
-                        #     pierwsze = False
-                        #
-                        #
-                        # else:
+                        if pierwsze:
+                            wyb = messaging['message']['quick_reply']['payload']
+                            dr = parserek.answer(page, wyb)
+
+
+
+                        else:
                             wyb = messaging['message']['quick_reply']['payload']
                             pytanie = parserek.pytanie(page)
                             buttons.odp(nadawca,pytanie, bot)
                             dr = parserek.answer(page,wyb)
+
+                        pierwsze = False
 
 
 
