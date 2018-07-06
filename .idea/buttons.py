@@ -8,14 +8,19 @@ def menu():
                 "composer_input_disabled": "true",
                 "call_to_actions": [
                     {
-                        "title": "Strona Bota",
+                        "title": "Messenger link",
                         "type": "web_url",
-                        "url": "https://www.facebook.com/Chat.Bot2000/"
+                        "url": "m.me/206547573337733"
                     },
                     {
                         "title": "Akiantor",
                         "type": "web_url",
                         "url": "https://akinator.com"
+                    },
+                    {
+                        "title": "Source code",
+                        "type": "web_url",
+                        "url": "https://github.com/karol20/sherbot"
                     }
                 ]
             }
@@ -35,7 +40,7 @@ def button(nadawca, bot):
                 "type": "template",
                 "payload": {
                     "template_type": "button",
-                    "text": "Witaj, jestem Sherlock bot. Pomyśl o dowolnej postaci, a ja odgadne kto to.",
+                    "text": "Witaj, jestem Sherbot. Pomyśl o dowolnej postaci, a ja wydedukuję kto to.",
                     "buttons": [
                         {
                             "type": "postback",
@@ -88,3 +93,5 @@ def odp(nadawca, pytanie, bot):
         }
     }
     bot.send_raw(WWW)
+
+

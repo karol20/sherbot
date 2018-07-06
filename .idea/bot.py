@@ -16,8 +16,8 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET','POST'])
 def ChatBot():
-
-
+    menu = buttons.menu()
+    r = requests.post(url, json=menu)
     if request.method == 'GET':
         if request.args.get("hub.verify_token") == Webhook_Token:
 
