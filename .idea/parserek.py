@@ -44,12 +44,12 @@ def wiadomosc(nadawca,messaging,driver,bot):
             dr = answer(driver, wyb)
             pytanie = get_pytanie(driver)
             buttons.odp(nadawca, pytanie, bot)
-            print("exept if true")
+
         else:
             propozycja = check_win(driver)
             wiadomosc = "Myślisz o %s" %(propozycja)
             buttons.reply(nadawca, wiadomosc, bot)
-            print("quick rep try")
+
 
 def kont(driver):
     driver.find_element_by_id("a_propose_no").click()

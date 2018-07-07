@@ -2373,3 +2373,10 @@ A content process crashed and MOZ_CRASHREPORTER_SHUTDOWN is set, shutting down
 [Child 10220, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
 [Child 10220, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
 [Parent 9400, Gecko_IOThread] WARNING: file z:/build/build/src/ipc/chromium/src/base/process_util_win.cc, line 188
+1530991231400	geckodriver	INFO	geckodriver 0.21.0
+1530991231413	geckodriver	INFO	Listening on 127.0.0.1:56821
+1530991234437	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Acer\\AppData\\Local\\Temp\\rust_mozprofile.gvzJCsbhMW9S"
+*** You are running in headless mode.
+1530991239617	Marionette	INFO	Listening on port 56833
+1530991240566	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://pl.akinator.com/js/workflow_game_desktop.js?v94, line 2: TypeError: arrUrlThemesToPlay is null

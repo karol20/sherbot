@@ -2,14 +2,13 @@ import os, sys
 from flask import Flask, request
 from pymessenger import Bot
 import requests
-import pprint
 import json
 import buttons
 import parserek
 
 
-Page_Access_Token = "EAADGZCGstHcwBAJq6BUSMZAZBfORzfrhu0k9kHtFvUTVPZBRhMnQd1vlpm94vBGwo8tNlZCSKh18ScPR5H18i8JUJntvvS6rKirJOmIag9LSxPOW9R9BQgu39vlC0MMkmMTBcPLxnXUJGQu6SVlf2ikCaH13opzQKiTizA5aWJwZDZD"
-Webhook_Token = "WHVT"
+Page_Access_Token = ""
+Webhook_Token = ""
 bot = Bot(Page_Access_Token)
 url = 'https://graph.facebook.com/v2.6/me/messenger_profile?access_token=%s' %(Page_Access_Token)
 app = Flask(__name__)
