@@ -17,15 +17,18 @@ def sesion():
 
     return driver
 
-def pytanie(driver):
+def get_pytanie(driver):
 
     q = driver.find_element_by_xpath("""//*[@id="game_content"]/div/div[3]/div[1]/div[2]/p""").text
     return q
 
 def check_win(driver):
-    p = driver.find_element_by_xpath("""//*[@id="game_content"]/div/div[3]/div[1]/div[2]/p/span[1]""").text
-    return p
+        p = driver.find_element_by_xpath("""//*[@id="game_content"]/div/div[3]/div[1]/div[2]/p/span[1]""").text
+        return p
 
+def get_guess(driver):
+    guess = driver.find_element_by_xpath("""//*[@id="game_content"]/div/div[3]/div[1]/div[2]/p/span[1]""")
+    return guess
 def answer(driver,wyb):
     d={
         "0":"""//*[@id="a_yes"]""",
@@ -38,7 +41,7 @@ def answer(driver,wyb):
     return dr
 
 
-def kill(driver):
-    driver.close()
+# def kill(driver):
+#     driver.close()
 
 

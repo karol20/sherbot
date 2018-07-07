@@ -16,8 +16,8 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET','POST'])
 def ChatBot():
-    menu = buttons.menu()
-    r = requests.post(url, json=menu)
+
+
     if request.method == 'GET':
         if request.args.get("hub.verify_token") == Webhook_Token:
 
@@ -44,36 +44,33 @@ def ChatBot():
                         #
                         global page
                         page = parserek.sesion()
-
                         buttons.button(nadawca, bot)
+                        print("rozpocznij")
                     #postaback po nacisnięciu zaczynajmy
                     else:
                         global pierwsze
                         pierwsze = True
-                        pytanie = parserek.pytanie(page)
+                        pytanie = parserek.get_pytanie(page)
                         buttons.odp(nadawca, pytanie, bot)
-
+                        print("zaczynajmy")
                 elif 'quick_reply' in messaging['message']:
 
                     try:
+                        print("quick rep try start")
                         propozycja = parserek.check_win(page)
-                        #buttons.win_buttons(nadawca, propozycja, bot)
-                        parserek.kill(page)
+                        print(propozycja)
+                        print("check win")
+                        buttons.reply(nadawca, propozycja, bot)
+                        print("quick rep try")
+                        #parserek.kill(page)
 
                     except Exception:
-                        if pierwsze:
-                            wyb = messaging['message']['quick_reply']['payload']
-                            dr = parserek.answer(page, wyb)
 
-
-
-                        else:
-                            wyb = messaging['message']['quick_reply']['payload']
-                            pytanie = parserek.pytanie(page)
-                            buttons.odp(nadawca,pytanie, bot)
-                            dr = parserek.answer(page,wyb)
-
-                        pierwsze = False
+                        wyb = messaging['message']['quick_reply']['payload']
+                        dr = parserek.answer(page, wyb)
+                        pytanie = parserek.get_pytanie(page)
+                        buttons.odp(nadawca, pytanie, bot)
+                        print("exept if true")
 
 
 

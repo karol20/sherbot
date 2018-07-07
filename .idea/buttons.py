@@ -1,34 +1,5 @@
 from pymessenger import Bot
 
-def menu():
-    menu ={
-        "persistent_menu": [
-            {
-                "locale": "default",
-                "composer_input_disabled": "true",
-                "call_to_actions": [
-                    {
-                        "title": "Messenger link",
-                        "type": "web_url",
-                        "url": "m.me/206547573337733"
-                    },
-                    {
-                        "title": "Akiantor",
-                        "type": "web_url",
-                        "url": "https://akinator.com"
-                    },
-                    {
-                        "title": "Source code",
-                        "type": "web_url",
-                        "url": "https://github.com/karol20/sherbot"
-                    }
-                ]
-            }
-        ]
-    }
-    return menu
-
-
 def button(nadawca, bot):
 
     button = {
@@ -95,3 +66,34 @@ def odp(nadawca, pytanie, bot):
     bot.send_raw(WWW)
 
 
+
+
+def replay(nadawca, propozycja, bot):
+    rep = {
+        "recipient": {
+            "id": nadawca
+        },
+        "message": {
+            "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "button",
+                    "text": propozycja,
+                    "buttons": [
+                        {
+                            "type": "postback",
+                            "title": "Zgadza się",
+                            "payload": "zgadza się"
+                        },
+                        {
+                            "type": "postback",
+                            "title": "Nie zgadza się",
+                            "payload": "Nie zgadza się"
+                        }
+
+                    ]
+                }
+            }
+        }
+    }
+    bot.send_raw(rep)
