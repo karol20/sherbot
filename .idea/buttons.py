@@ -68,7 +68,7 @@ def odp(nadawca, pytanie, bot):
 
 
 
-def replay(nadawca, propozycja, bot):
+def reply(nadawca, propozycja, bot):
     rep = {
         "recipient": {
             "id": nadawca

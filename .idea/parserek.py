@@ -1,33 +1,31 @@
-from bs4 import BeautifulSoup
 from lxml import html
 import requests
-import mechanicalsoup
 import urllib3
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
 import buttons
-
+from pymessenger import Bot
+import buttons
 def sesion():
     options = Options()
     options.set_headless(headless=True)
     driver = webdriver.Firefox(firefox_options=options, executable_path=r'C:\Users\Acer\Desktop\robota\geckodriver.exe')
     driver.get("https://pl.akinator.com/game")
     driver.back()
-
     return driver
-
 def get_pytanie(driver):
 
-    q = driver.find_element_by_xpath("""//*[@id="game_content"]/div/div[3]/div[1]/div[2]/p""").text
+    q = driver.find_element_by_class_name("question-text").text
     return q
 
 def check_win(driver):
-        p = driver.find_element_by_xpath("""//*[@id="game_content"]/div/div[3]/div[1]/div[2]/p/span[1]""").text
+
+        p = guess = driver.find_element_by_class_name("proposal-title").text
         return p
 
 def get_guess(driver):
-    guess = driver.find_element_by_xpath("""//*[@id="game_content"]/div/div[3]/div[1]/div[2]/p/span[1]""")
+    guess = driver.find_element_by_class_name("proposal-title")
     return guess
 def answer(driver,wyb):
     d={
@@ -43,5 +41,39 @@ def answer(driver,wyb):
 
 # def kill(driver):
 #     driver.close()
+def wiadomosc(nadawca,messaging,driver,bot):
 
 
+    # try:
+    #     driver.find_element_by_xpath("""//*[@id="game_content"]/div/div[3]/div[1]/div[1]/p""")
+    #     print("______________")
+    # except:
+        # try:
+        #
+        #     propozycja = check_win(driver)
+        #     print(propozycja)
+        #
+        #     buttons.reply(nadawca, propozycja, bot)
+        #     print("quick rep try")
+        #     # parserek.kill(page)
+        #
+        # except Exception:
+        try:
+            driver.find_element_by_class_name("proposal-title")
+            # propozycja = check_win(driver)
+            # print(propozycja)
+            # buttons.reply(nadawca, propozycja, bot)
+            # print("quick rep try")
+        except:
+
+            wyb = messaging['message']['quick_reply']['payload']
+            dr = answer(driver, wyb)
+            pytanie = get_pytanie(driver)
+            buttons.odp(nadawca, pytanie, bot)
+            print("exept if true")
+        else:
+            #print(driver.page_source)
+            propozycja = check_win(driver)
+            wiadomosc = "Myślisz o %s" %(propozycja)
+            buttons.reply(nadawca, wiadomosc, bot)
+            print("quick rep try")

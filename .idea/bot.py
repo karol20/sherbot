@@ -47,30 +47,19 @@ def ChatBot():
                         buttons.button(nadawca, bot)
                         print("rozpocznij")
                     #postaback po nacisnięciu zaczynajmy
-                    else:
+                    elif messaging['postback']['payload'] == "start":
                         global pierwsze
                         pierwsze = True
                         pytanie = parserek.get_pytanie(page)
                         buttons.odp(nadawca, pytanie, bot)
                         print("zaczynajmy")
+                    elif messaging['postback']['payload'] == "zgadza się":
+                        bot.send_text_message(nadawca, "zgadza się")
+                    elif messaging['postback']['payload'] == "Nie zgadza się":
+                        bot.send_text_message(nadawca, "nie zgadza się")
+
                 elif 'quick_reply' in messaging['message']:
-
-                    try:
-                        print("quick rep try start")
-                        propozycja = parserek.check_win(page)
-                        print(propozycja)
-                        print("check win")
-                        buttons.reply(nadawca, propozycja, bot)
-                        print("quick rep try")
-                        #parserek.kill(page)
-
-                    except Exception:
-
-                        wyb = messaging['message']['quick_reply']['payload']
-                        dr = parserek.answer(page, wyb)
-                        pytanie = parserek.get_pytanie(page)
-                        buttons.odp(nadawca, pytanie, bot)
-                        print("exept if true")
+                        parserek.wiadomosc(nadawca,messaging,page,bot)
 
 
 
