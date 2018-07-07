@@ -20,13 +20,11 @@ def get_pytanie(driver):
     return q
 
 def check_win(driver):
-
-        p = guess = driver.find_element_by_class_name("proposal-title").text
-        return p
-
-def get_guess(driver):
-    guess = driver.find_element_by_class_name("proposal-title")
+    Titleguess = driver.find_element_by_class_name("proposal-title").text
+    subGuess = driver.find_element_by_class_name("proposal-subtitle").text
+    guess = Titleguess + " (" + subGuess + ")"
     return guess
+
 def answer(driver,wyb):
     d={
         "0":"""//*[@id="a_yes"]""",
@@ -40,7 +38,7 @@ def answer(driver,wyb):
 
 
 def kill(driver):
-    driver.close()
+    driver.quit()
 def wiadomosc(nadawca,messaging,driver,bot):
 
 
@@ -72,11 +70,12 @@ def wiadomosc(nadawca,messaging,driver,bot):
             buttons.odp(nadawca, pytanie, bot)
             print("exept if true")
         else:
-            #print(driver.page_source)
             propozycja = check_win(driver)
             wiadomosc = "Myślisz o %s" %(propozycja)
             buttons.reply(nadawca, wiadomosc, bot)
             print("quick rep try")
 
-def kont(page):
-    pass
+def kont(driver):
+    driver.find_element_by_id("a_propose_no").click()
+    dr = driver.find_element_by_id("a_continue_yes").click()
+    return dr

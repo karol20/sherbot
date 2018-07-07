@@ -41,7 +41,6 @@ def ChatBot():
                 if 'postback' in messaging:
                     #początek rozmowy / przycisk rozpocznij/ nawiązanie połączenia z akinatorem
                     if messaging['postback']['payload'] == "Rozpocznij" or messaging['postback']['payload'] == "again":
-                        global page
                         page = parserek.sesion()
                         if messaging['postback']['payload'] == "Rozpocznij":
                             buttons.button(nadawca, bot)
@@ -57,12 +56,13 @@ def ChatBot():
 
                     elif messaging['postback']['payload'] == "zgadza się":
                         buttons.zgadza(nadawca, bot)
-                        parserek.kill(page)
 
                     elif messaging['postback']['payload'] == "Nie zgadza się":
                         buttons.nie_zgadza(nadawca,bot)
                     elif messaging['postback']['payload'] == "dalej":
-                        bot.send_text_message(nadawca, "dalej")
+                        parserek.kont(page)
+                        pytanie = parserek.get_pytanie(page)
+                        buttons.odp(nadawca, pytanie, bot)
 
                     # elif messaging['postback']['payload'] == "again":
                     #     global page
