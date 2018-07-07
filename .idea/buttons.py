@@ -97,3 +97,61 @@ def reply(nadawca, propozycja, bot):
         }
     }
     bot.send_raw(rep)
+
+
+
+def zgadza(nadawca, bot):
+
+    zgadza= {
+        "recipient": {
+            "id": nadawca
+        },
+        "message": {
+            "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "button",
+                    "text": "Hah, elementary my dear watson.",
+                    "buttons": [
+                        {
+                            "type": "postback",
+                            "title": "Zagraj ponownie",
+                            "payload": "again"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    bot.send_raw(zgadza)
+
+def nie_zgadza(nadawca, bot):
+
+    nZgadza = {
+        "recipient": {
+            "id": nadawca
+        },
+        "message": {
+            "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "button",
+                    "text": "Hmm, najwyraźniej nie miałem odpowiedniej ilości danych.",
+                    "buttons": [
+                        {
+                            "type": "postback",
+                            "title": "Zagraj ponownie",
+                            "payload": "again"
+                        },
+                        {
+                            "type": "postback",
+                            "title": "graj dalej",
+                            "payload": "dalej"
+                        }
+
+                    ]
+                }
+            }
+        }
+    }
+    bot.send_raw(nZgadza)

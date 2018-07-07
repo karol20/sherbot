@@ -40,23 +40,35 @@ def ChatBot():
 
                 if 'postback' in messaging:
                     #początek rozmowy / przycisk rozpocznij/ nawiązanie połączenia z akinatorem
-                    if messaging['postback']['payload'] == "Rozpocznij":
-                        #
+                    if messaging['postback']['payload'] == "Rozpocznij" or messaging['postback']['payload'] == "again":
                         global page
                         page = parserek.sesion()
-                        buttons.button(nadawca, bot)
+                        if messaging['postback']['payload'] == "Rozpocznij":
+                            buttons.button(nadawca, bot)
+                        elif messaging['postback']['payload'] == "again":
+                            pytanie = parserek.get_pytanie(page)
+                            buttons.odp(nadawca, pytanie, bot)
                         print("rozpocznij")
                     #postaback po nacisnięciu zaczynajmy
                     elif messaging['postback']['payload'] == "start":
-                        global pierwsze
-                        pierwsze = True
                         pytanie = parserek.get_pytanie(page)
                         buttons.odp(nadawca, pytanie, bot)
                         print("zaczynajmy")
+
                     elif messaging['postback']['payload'] == "zgadza się":
-                        bot.send_text_message(nadawca, "zgadza się")
+                        buttons.zgadza(nadawca, bot)
+                        parserek.kill(page)
+
                     elif messaging['postback']['payload'] == "Nie zgadza się":
-                        bot.send_text_message(nadawca, "nie zgadza się")
+                        buttons.nie_zgadza(nadawca,bot)
+                    elif messaging['postback']['payload'] == "dalej":
+                        bot.send_text_message(nadawca, "dalej")
+
+                    # elif messaging['postback']['payload'] == "again":
+                    #     global page
+                    #     bot.send_text_message(nadawca, "again")
+                    #     page = parserek.sesion()
+                    #     buttons.button(nadawca, bot)
 
                 elif 'quick_reply' in messaging['message']:
                         parserek.wiadomosc(nadawca,messaging,page,bot)

@@ -39,8 +39,8 @@ def answer(driver,wyb):
     return dr
 
 
-# def kill(driver):
-#     driver.close()
+def kill(driver):
+    driver.close()
 def wiadomosc(nadawca,messaging,driver,bot):
 
 
@@ -77,3 +77,6 @@ def wiadomosc(nadawca,messaging,driver,bot):
             wiadomosc = "Myślisz o %s" %(propozycja)
             buttons.reply(nadawca, wiadomosc, bot)
             print("quick rep try")
+
+def kont(page):
+    pass
