@@ -35,33 +35,9 @@ def answer(driver,wyb):
     }
     dr = driver.find_element_by_xpath(d[wyb]).click()
     return dr
-
-
-def kill(driver):
-    driver.quit()
 def wiadomosc(nadawca,messaging,driver,bot):
-
-
-    # try:
-    #     driver.find_element_by_xpath("""//*[@id="game_content"]/div/div[3]/div[1]/div[1]/p""")
-    #     print("______________")
-    # except:
-        # try:
-        #
-        #     propozycja = check_win(driver)
-        #     print(propozycja)
-        #
-        #     buttons.reply(nadawca, propozycja, bot)
-        #     print("quick rep try")
-        #     # parserek.kill(page)
-        #
-        # except Exception:
         try:
             driver.find_element_by_class_name("proposal-title")
-            # propozycja = check_win(driver)
-            # print(propozycja)
-            # buttons.reply(nadawca, propozycja, bot)
-            # print("quick rep try")
         except:
 
             wyb = messaging['message']['quick_reply']['payload']
@@ -79,3 +55,4 @@ def kont(driver):
     driver.find_element_by_id("a_propose_no").click()
     dr = driver.find_element_by_id("a_continue_yes").click()
     return dr
+

@@ -15,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="bot.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bot.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/bot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="42" column="119" selection-start-line="42" selection-start-column="119" selection-end-line="42" selection-end-column="119" />
+            <state relative-caret-position="391">
+              <caret line="47" column="69" selection-start-line="47" selection-start-column="69" selection-end-line="47" selection-end-column="69" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -30,17 +30,17 @@
       <file leaf-file-name="buttons.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/buttons.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1649">
+            <state relative-caret-position="-1764">
               <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parserek.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="parserek.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.idea/parserek.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="74" selection-start-line="23" selection-start-column="74" selection-end-line="23" selection-end-column="74" />
+            <state relative-caret-position="514">
+              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -70,8 +70,8 @@
       <list>
         <option value="$PROJECT_DIR$/../bot z menu/.idea/get_started.py" />
         <option value="$PROJECT_DIR$/.idea/buttons.py" />
-        <option value="$PROJECT_DIR$/.idea/parserek.py" />
         <option value="$PROJECT_DIR$/.idea/bot.py" />
+        <option value="$PROJECT_DIR$/.idea/parserek.py" />
       </list>
     </option>
   </component>
@@ -423,27 +423,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/buttons.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1649">
+        <state relative-caret-position="-1764">
           <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/parserek.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="74" selection-start-line="23" selection-start-column="74" selection-end-line="23" selection-end-column="74" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/bot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="42" column="119" selection-start-line="42" selection-start-column="119" selection-end-line="42" selection-end-column="119" />
+        <state relative-caret-position="391">
+          <caret line="47" column="69" selection-start-line="47" selection-start-column="69" selection-end-line="47" selection-end-column="69" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/parserek.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>

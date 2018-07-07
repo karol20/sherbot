@@ -40,36 +40,33 @@ def ChatBot():
 
                 if 'postback' in messaging:
                     #początek rozmowy / przycisk rozpocznij/ nawiązanie połączenia z akinatorem
-                    if messaging['postback']['payload'] == "Rozpocznij" or messaging['postback']['payload'] == "again":
+                    if messaging['postback']['payload'] == "Rozpocznij":
+                        global page
                         page = parserek.sesion()
-                        if messaging['postback']['payload'] == "Rozpocznij":
-                            buttons.button(nadawca, bot)
-                        elif messaging['postback']['payload'] == "again":
-                            pytanie = parserek.get_pytanie(page)
-                            buttons.odp(nadawca, pytanie, bot)
-                        print("rozpocznij")
+                        buttons.button(nadawca, bot)
+                    #nawiązanie kolejnego połączenia w tej samej sesji
+                    elif messaging['postback']['payload'] == "again":
+                        page = parserek.sesion()
+                        pytanie = parserek.get_pytanie(page)
+                        buttons.odp(nadawca, pytanie, bot)
                     #postaback po nacisnięciu zaczynajmy
                     elif messaging['postback']['payload'] == "start":
                         pytanie = parserek.get_pytanie(page)
                         buttons.odp(nadawca, pytanie, bot)
                         print("zaczynajmy")
-
+                    #odgadnięta odpowiedź
                     elif messaging['postback']['payload'] == "zgadza się":
                         buttons.zgadza(nadawca, bot)
-
+                    #błędna odpowiedź
                     elif messaging['postback']['payload'] == "Nie zgadza się":
                         buttons.nie_zgadza(nadawca,bot)
+                    #kontynuowanie gry po błędnej odpowiedzi
                     elif messaging['postback']['payload'] == "dalej":
                         parserek.kont(page)
                         pytanie = parserek.get_pytanie(page)
                         buttons.odp(nadawca, pytanie, bot)
 
-                    # elif messaging['postback']['payload'] == "again":
-                    #     global page
-                    #     bot.send_text_message(nadawca, "again")
-                    #     page = parserek.sesion()
-                    #     buttons.button(nadawca, bot)
-
+                #zadanie pytania/przyjęcie odpowiedzi/sprawdzenie czy akinator znalazł osobę
                 elif 'quick_reply' in messaging['message']:
                         parserek.wiadomosc(nadawca,messaging,page,bot)
 
