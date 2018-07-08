@@ -6,7 +6,6 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
 import buttons
 from pymessenger import Bot
-import buttons
 def sesion():
     options = Options()
     options.set_headless(headless=True)
