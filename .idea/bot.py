@@ -7,8 +7,8 @@ import buttons
 import parserek
 
 
-Page_Access_Token = "EAADGZCGstHcwBAJq6BUSMZAZBfORzfrhu0k9kHtFvUTVPZBRhMnQd1vlpm94vBGwo8tNlZCSKh18ScPR5H18i8JUJntvvS6rKirJOmIag9LSxPOW9R9BQgu39vlC0MMkmMTBcPLxnXUJGQu6SVlf2ikCaH13opzQKiTizA5aWJwZDZD"
-Webhook_Token = "WHVT"
+Page_Access_Token = ""
+Webhook_Token = ""
 bot = Bot(Page_Access_Token)
 app = Flask(__name__)
 
