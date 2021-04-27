@@ -9,7 +9,8 @@ from pymessenger import Bot
 def sesion():
     options = Options()
     options.set_headless(headless=True)
-    driver = webdriver.Firefox(firefox_options=options, executable_path=r'C:\Users\Acer\Desktop\robota\geckodriver.exe')
+    # w miejscu ******* należy podać scieżkę webdrivera
+    driver = webdriver.Firefox(firefox_options=options, executable_path=r#'*******')
     driver.get("https://pl.akinator.com/game")
     driver.back()
     return driver
